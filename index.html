@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="zh-Hans">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>沙面·万国建筑地图｜1859—2024</title>
+  <meta name="description" content="广州沙面岛历史建筑档案地图：23 处建筑、18 个历史事件、1859—2024 时间切片。从法国兵营到城市客厅。">
+  <meta name="theme-color" content="#f4efe6">
+  <link rel="icon" href="./assets/favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="./vendor/leaflet/leaflet.css">
+  <link rel="stylesheet" href="./styles.css">
+</head>
+<body>
+  <a class="skip-link" href="#archive">跳到建筑档案</a>
+
+  <div class="app" id="appShell" inert>
+    <header class="site-header">
+      <div class="masthead">
+        <p class="eyebrow">广州近代建筑档案 · 荔湾 · 沙面</p>
+        <h1>沙面·万国建筑地图</h1>
+        <p class="subtitle">1859—2024 / 从法国兵营到城市客厅</p>
+      </div>
+      <div class="header-actions">
+        <button class="btn btn-ghost" id="storyBtn" type="button">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 5h7v14H4zM13 5h7v14h-7z"/></svg>
+          <span>故事线</span>
+        </button>
+        <button class="btn btn-ghost" id="sourcesBtn" type="button">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="8.2"/><path d="M12 10.8v5.4M12 7.6v.2"/></svg>
+          <span>资料来源</span>
+        </button>
+        <button class="btn btn-icon" id="resetBtn" type="button" aria-label="重置视图" title="重置视图">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4.5 9.5A8 8 0 1 1 4 14"/><path d="M4.5 4.5v5h5"/></svg>
+        </button>
+      </div>
+    </header>
+
+    <div class="workspace">
+      <main class="map-column">
+        <div class="filter-bar" id="filterBar" role="toolbar" aria-label="按建筑类别筛选">
+          <span class="filter-label">筛选</span>
+          <div class="filter-scroll">
+            <button class="chip is-active" type="button" data-category="all" aria-pressed="true">全部</button>
+            <button class="chip" type="button" data-category="consulate" aria-pressed="false">领事馆</button>
+            <button class="chip" type="button" data-category="bank" aria-pressed="false">银行洋行</button>
+            <button class="chip" type="button" data-category="church" aria-pressed="false">教堂</button>
+            <button class="chip" type="button" data-category="public" aria-pressed="false">公共文化</button>
+            <button class="chip" type="button" data-category="hotel" aria-pressed="false">酒店住宅</button>
+            <button class="chip" type="button" data-category="military" aria-pressed="false">军事警察</button>
+            <button class="chip" type="button" data-category="surrounding" aria-pressed="false">周边关联</button>
+          </div>
+        </div>
+
+        <div class="map-wrap">
+          <div id="map" aria-label="沙面历史建筑交互地图"></div>
+
+          <div class="map-hud" id="mapHud">
+            <span class="hud-kicker">时间切片</span>
+            <strong id="hudYear">2024</strong>
+            <span class="hud-count" id="hudCount">23 / 23 处</span>
+          </div>
+
+          <div class="basemap-switch" id="basemapSwitch" role="group" aria-label="底图类型">
+            <button class="basemap-btn is-active" type="button" data-basemap="2d" aria-pressed="true">2D</button>
+            <button class="basemap-btn" type="button" data-basemap="satellite" aria-pressed="false" title="卫星底图需联网">卫星</button>
+          </div>
+
+          <details class="legend" id="legend" open>
+            <summary>图例</summary>
+            <div class="legend-grid">
+              <span><i class="dot dot-consulate"></i>领事馆</span>
+              <span><i class="dot dot-bank"></i>银行洋行</span>
+              <span><i class="dot dot-church"></i>教堂</span>
+              <span><i class="dot dot-public"></i>公共文化</span>
+              <span><i class="dot dot-hotel"></i>酒店住宅</span>
+              <span><i class="dot dot-military"></i>军事警察</span>
+              <span><i class="dot dot-surrounding"></i>周边关联</span>
+            </div>
+            <p class="legend-note">虚线岛屿为示意轮廓</p>
+          </details>
+        </div>
+
+        <section class="timeline" id="timeline" aria-label="时间轴">
+          <div class="timeline-head">
+            <button class="play-btn" id="playBtn" type="button" aria-label="播放时间轴（跳转有变化年份）">
+              <svg class="icon-play" viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5.2l11 6.8-11 6.8z"/></svg>
+              <svg class="icon-pause" viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5h3v14H8zM13 5h3v14h-3z"/></svg>
+            </button>
+            <div class="timeline-readout">
+              <span class="readout-kicker">时间切片</span>
+              <span class="readout-year"><strong id="yearLabel">2024</strong><small>年</small></span>
+            </div>
+            <div class="timeline-meta" id="timelineMeta">已建成 23 处 · 18 件史事</div>
+          </div>
+
+          <div class="range-row">
+            <input type="range" id="yearRange" min="1859" max="2024" step="1" value="2024" aria-label="选择年份，1859 至 2024">
+            <div class="ticks" id="ticks" role="group" aria-label="事件刻度"></div>
+          </div>
+          <div class="timeline-foot" aria-hidden="true">
+            <span style="left:0%">1859</span>
+            <span style="left:36.7%">1920</span>
+            <span style="left:72.9%">1980</span>
+            <span style="left:100%">2024</span>
+          </div>
+          <p class="timeline-note">播放仅跳转有变化的年份（建成 / 事件）；拖动仍按年。点选事件刻度查看史事。</p>
+        </section>
+      </main>
+
+      <aside class="archive" id="archive" aria-label="建筑档案面板">
+        <div class="drawer-handle" id="drawerHandle" role="button" tabindex="0" aria-label="收起或展开档案面板">
+          <span></span>
+        </div>
+        <div class="archive-scroll" id="archiveScroll">
+          <section class="archive-view" id="archiveHome">
+            <div class="panel-heading">
+              <p class="eyebrow">Shamian Archive</p>
+              <h2>沙面档案</h2>
+            </div>
+            <p class="panel-lede">0.22 平方公里的沙面，是白鹅潭畔的一座人工岛。1859 年填筑，1861 年成为英法租界，1996 年整岛列为全国重点文物保护单位。拖动底部时间轴，查看不同年份的建筑与事件。</p>
+            <div class="stat-row">
+              <div><strong>23</strong><span>处建筑</span></div>
+              <div><strong>18</strong><span>件史事</span></div>
+              <div><strong id="photoStat">27</strong><span>张照片</span></div>
+            </div>
+
+            <div class="section-head">
+              <h3>本年纪事</h3>
+              <span id="eventCountLabel">18 件</span>
+            </div>
+            <div class="event-list" id="eventList"></div>
+
+            <div class="section-head">
+              <h3>建筑索引</h3>
+              <span id="buildingCountLabel">23 处</span>
+            </div>
+            <div class="building-list" id="buildingList"></div>
+
+            <p class="panel-foot">资料中的“约”保留原样，年代不写成精确值。底图 © OpenStreetMap contributors；照片版权见“资料来源”。</p>
+          </section>
+
+          <section class="archive-view" id="buildingView" hidden aria-live="polite"></section>
+          <section class="archive-view" id="eventView" hidden aria-live="polite"></section>
+        </div>
+      </aside>
+    </div>
+  </div>
+
+  <div class="intro" id="intro" role="dialog" aria-modal="true" aria-labelledby="introTitle">
+    <svg class="intro-island" viewBox="0 0 900 420" aria-hidden="true">
+      <path d="M64 232 C150 150 260 116 392 116 C520 116 646 138 812 190 L836 208 C700 264 566 302 424 308 C286 314 168 292 78 252 Z"/>
+      <path class="intro-creek" d="M40 286 C190 246 330 232 470 236 C620 240 742 262 862 306"/>
+    </svg>
+    <div class="intro-card">
+      <p class="eyebrow">广州 · 白鹅潭畔 · 沙面岛</p>
+      <h2 id="introTitle">沙面·万国建筑地图</h2>
+      <p class="intro-sub">1859—2024 / 从法国兵营到城市客厅</p>
+      <p class="intro-lede">一座人工岛，二十余栋近代建筑，一百六十五年的档案。从填筑沙基涌、英法租约，到收回租界、白天鹅开业与十号活化，在地图上按年份阅读沙面。</p>
+      <div class="intro-stats">
+        <div><strong>0.22</strong><span>km² 岛屿</span></div>
+        <div><strong>23</strong><span>处建筑 POI</span></div>
+        <div><strong>165</strong><span>年档案</span></div>
+      </div>
+      <button class="btn btn-primary" id="startBtn" type="button">开始探索</button>
+      <p class="intro-hint">点击地图上的建筑查看档案；拖动底部时间轴，查看不同年份的沙面。</p>
+    </div>
+  </div>
+
+  <div class="story" id="story" role="dialog" aria-modal="false" aria-labelledby="storyTitle" hidden>
+    <div class="story-card">
+      <button class="story-close" id="storyClose" type="button" aria-label="关闭故事线">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18"/></svg>
+      </button>
+      <div class="story-progress" id="storyProgress" aria-label="故事进度"></div>
+      <figure class="story-figure" id="storyFigure">
+        <img id="storyImage" alt="">
+        <figcaption id="storyCaption"></figcaption>
+      </figure>
+      <div class="story-copy">
+        <p class="story-kicker"><span id="storyIndex">01</span> / 08 · <span id="storyYear">1859</span></p>
+        <h2 id="storyTitle"></h2>
+        <p id="storyText"></p>
+      </div>
+      <div class="story-actions">
+        <button class="btn btn-ghost" id="storyPrev" type="button">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M15 6l-6 6 6 6"/></svg>
+          <span>上一步</span>
+        </button>
+        <button class="btn btn-primary" id="storyNext" type="button">
+          <span>下一步</span>
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M9 6l6 6-6 6"/></svg>
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <div class="modal" id="sourcesModal" role="dialog" aria-modal="true" aria-labelledby="sourcesTitle" hidden>
+    <div class="modal-panel">
+      <button class="modal-close" id="sourcesClose" type="button" aria-label="关闭资料来源">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18"/></svg>
+      </button>
+      <div class="modal-scroll">
+        <p class="eyebrow">Sources &amp; Credits</p>
+        <h2 id="sourcesTitle">资料来源</h2>
+        <p class="modal-lede">本页为纯静态课程作业。建筑轮廓来自 OpenStreetMap，照片来自 Wikimedia Commons；年代为约数时以“约”标注，不写成精确年份。</p>
+
+        <h3>数据与底图</h3>
+        <ul class="source-list">
+          <li>建筑轮廓：© <a href="https://www.openstreetmap.org/copyright" target="_blank" rel="noopener">OpenStreetMap contributors</a>，ODbL 1.0。2026-11-12 经 Overpass API 提取，WGS84。</li>
+          <li>底图：OpenStreetMap 标准瓦片的 <strong>z16—z19 本地离线瓦片金字塔</strong>（约 1511 张），并附 z19 高清拼接总图；页面不请求在线 OSM 瓦片。© OpenStreetMap contributors，ODbL 1.0。</li>
+          <li>可选卫星底图：<a href="https://www.esri.com/" target="_blank" rel="noopener">Esri World Imagery</a>（Esri, Maxar, Earthstar Geographics），无需 API Key，需联网；卫星图层仅为可选背景，默认仍为离线 2D。</li>
+        </ul>
+
+        <h3>文字史料</h3>
+        <ul class="source-list">
+          <li>《广州沙面大街10号保护活化实录》，2024 年。</li>
+          <li>广州市情网（广州市地方志办公室）沙面相关条目。</li>
+          <li>《广州城市形态演进》《羊城春秋：广州城市历史研究手记》。</li>
+          <li>广州市文物考古研究院不可移动文物介绍页。</li>
+          <li>中文维基百科相关条目，仅作交叉核对。</li>
+        </ul>
+        <p class="modal-note">完整书目、数据处理与不确定性说明见项目文件 <code>data/sources.md</code>。</p>
+
+        <h3>图片来源 <span id="creditCount"></span></h3>
+        <p class="modal-note">每张图片保留作者、许可与原始文件页。CC BY-SA 图片的再利用需署名并以相同方式共享。</p>
+        <div class="credit-list" id="creditList"></div>
+      </div>
+    </div>
+  </div>
+
+  <noscript>
+    <div class="noscript">本页需要 JavaScript 才能加载地图与建筑档案。请在浏览器中启用 JavaScript。</div>
+  </noscript>
+
+  <script src="./vendor/leaflet/leaflet.js"></script>
+  <script src="./app.js"></script>
+</body>
+</html>
+

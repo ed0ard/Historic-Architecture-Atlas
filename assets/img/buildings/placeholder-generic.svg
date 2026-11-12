@@ -1,0 +1,23 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="800" height="600" viewBox="0 0 800 600" role="img" aria-label="沙面历史建筑通用示意图">
+  <rect width="800" height="600" fill="#f4efe6"/>
+  <rect x="18" y="18" width="764" height="564" fill="none" stroke="#cfc6b8" stroke-width="2"/>
+  <g font-family="'Noto Serif SC','Songti SC',SimSun,serif" fill="#1f2a26">
+    <text x="48" y="64" font-size="15" letter-spacing="4" fill="#6b6258">沙面建筑档案 · SHAMIAN ARCHIVE</text>
+    <text x="48" y="116" font-size="34">建筑图像暂缺</text>
+    <text x="48" y="146" font-size="14" fill="#6b6258" font-family="'Noto Sans SC','Microsoft YaHei',sans-serif">IMAGE NOT AVAILABLE</text>
+  </g>
+  <g stroke="#1f4d3a" fill="none" stroke-width="3" stroke-linecap="square">
+    <path d="M170 430 L170 254 L630 254 L630 430"/>
+    <path d="M150 254 L400 186 L650 254"/>
+    <path d="M170 312 L630 312"/>
+    <path d="M240 430 L240 310 L320 310 L320 430"/>
+    <path d="M360 430 L360 310 L440 310 L440 430"/>
+    <path d="M480 430 L480 310 L560 310 L560 430"/>
+    <path d="M150 430 L650 430"/>
+  </g>
+  <g font-family="'Noto Sans SC','Microsoft YaHei',sans-serif" fill="#6b6258">
+    <text x="48" y="510" font-size="14">此建筑暂无合适的开放许可照片，以通用建筑轮廓示意。</text>
+    <text x="48" y="540" font-size="12">如需补充，请使用 Wikimedia Commons 上有明确作者与许可的图片。</text>
+  </g>
+  <text x="752" y="560" text-anchor="end" font-family="'Noto Sans SC','Microsoft YaHei',sans-serif" font-size="12" fill="#8a8175">自制示意图</text>
+</svg>

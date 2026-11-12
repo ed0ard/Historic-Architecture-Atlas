@@ -1,0 +1,230 @@
+[
+ {
+  "id": "e-1859",
+  "year": 1859,
+  "date_label": "清咸丰九年",
+  "title": "沙面开始填筑",
+  "type": "建设",
+  "description": "迁走寮民、拆毁城防炮台，挖出宽约40米、长1200米的沙基涌，以花岗石砌筑堤岸。工程历时约两年，沙洲逐渐变成人工岛。",
+  "building_ids": [
+   "shamian-10"
+  ],
+  "source": "《广州沙面大街10号保护活化实录》；广州市情网",
+  "confidence": "high"
+ },
+ {
+  "id": "e-1861",
+  "year": 1861,
+  "date_label": "清咸丰十一年",
+  "title": "中英、中法签订沙面租约",
+  "type": "事件",
+  "description": "1861年9月3日中英签订《沙面租约协定》，9月17日中法签订租约。英国占西部约4/5，法国占东部约1/5，沙面正式成为英法租界。",
+  "building_ids": [
+   "british-consulate",
+   "french-consulate"
+  ],
+  "source": "广州市情网；《广州城市形态演进》",
+  "confidence": "high"
+ },
+ {
+  "id": "e-1864",
+  "year": 1864,
+  "date_label": "清同治三年",
+  "title": "沙面基督教堂建成",
+  "type": "建成",
+  "description": "沙面基督教堂与牧师公馆建成，为英租界最早的公共建筑之一，由英国圣公会使用。",
+  "building_ids": [
+   "christ-church"
+  ],
+  "source": "广州市情网；Wikimedia Commons",
+  "confidence": "high"
+ },
+ {
+  "id": "e-1865",
+  "year": 1865,
+  "date_label": "清同治四年",
+  "title": "英国领事馆迁入沙面",
+  "type": "建成",
+  "description": "英国领事馆迁入沙面南街46号，成为沙面租界最早设立的外交机构之一。",
+  "building_ids": [
+   "british-consulate"
+  ],
+  "source": "《广州沙面大街10号保护活化实录》；广州市情网",
+  "confidence": "high"
+ },
+ {
+  "id": "e-1870",
+  "year": 1870,
+  "date_label": "清同治九年",
+  "title": "英租界公共设施基本竣工",
+  "type": "建成",
+  "description": "英租界道路、码头、排水与主要楼堂馆舍基本竣工，沙面作为商住与外交区的格局初步形成。",
+  "building_ids": [],
+  "source": "广州市情网；《广州城市形态演进》",
+  "confidence": "high"
+ },
+ {
+  "id": "e-1889",
+  "year": 1889,
+  "date_label": "清光绪十五年",
+  "title": "法租界24个地块公开拍卖",
+  "type": "事件",
+  "description": "法租界将24个地块公开拍卖，推动沙面东部进入密集建设阶段。",
+  "building_ids": [],
+  "source": "《广州沙面大街10号保护活化实录》",
+  "confidence": "high"
+ },
+ {
+  "id": "e-1890",
+  "year": 1890,
+  "date_label": "清光绪十六年",
+  "title": "露德圣母堂建成，法国领事馆迁入",
+  "type": "建成",
+  "description": "露德圣母堂建成；法国领事馆迁入沙面，法租界的宗教与外交功能进一步完善。",
+  "building_ids": [
+   "lourdes",
+   "french-consulate"
+  ],
+  "source": "广州市情网；《广州沙面大街10号保护活化实录》",
+  "confidence": "high"
+ },
+ {
+  "id": "e-1894",
+  "year": 1894,
+  "date_label": "清光绪二十年",
+  "title": "法国公共花园落成",
+  "type": "建成",
+  "description": "法国公共花园落成，成为法租界重要的公共开放空间。",
+  "building_ids": [],
+  "source": "广州市情网",
+  "confidence": "high"
+ },
+ {
+  "id": "e-1909",
+  "year": 1909,
+  "date_label": "清宣统元年",
+  "title": "粤海关俱乐部（东红楼）竣工",
+  "type": "建成",
+  "description": "粤海关俱乐部在沙面大街2、4、6号竣工，因红砖外墙俗称“东红楼”，后作海关职员宿舍。",
+  "building_ids": [
+   "customs-club"
+  ],
+  "source": "《广州沙面大街10号保护活化实录》；广州市情网",
+  "confidence": "high"
+ },
+ {
+  "id": "e-1915",
+  "year": 1915,
+  "date_label": "民国四年",
+  "title": "乙卯水灾，沙面被淹",
+  "type": "灾害",
+  "description": "1915年珠江流域发生乙卯大水，沙面被淹，多栋建筑受损，租界堤岸与排水系统经受严峻考验。",
+  "building_ids": [],
+  "source": "广州市情网；《羊城春秋》",
+  "confidence": "high"
+ },
+ {
+  "id": "e-1943",
+  "year": 1943,
+  "date_label": "民国三十二年",
+  "title": "法国宣布放弃在华治外法权",
+  "type": "事件",
+  "description": "1943年，法国宣布放弃在华治外法权，沙面法租界的制度基础开始瓦解。",
+  "building_ids": [
+   "french-consulate"
+  ],
+  "source": "广州市情网",
+  "confidence": "high"
+ },
+ {
+  "id": "e-1946",
+  "year": 1946,
+  "date_label": "民国三十五年",
+  "title": "国民政府收回沙面租界",
+  "type": "收回",
+  "description": "1946年，国民政府颁布收回沙面前英、法租界令，沙面结束长达85年的租界历史。",
+  "building_ids": [
+   "british-consulate",
+   "french-consulate",
+   "shamian-10"
+  ],
+  "source": "广州市情网；《广州沙面大街10号保护活化实录》",
+  "confidence": "high"
+ },
+ {
+  "id": "e-1949",
+  "year": 1949,
+  "date_label": "1949年",
+  "title": "广州解放，军管会接管沙面",
+  "type": "事件",
+  "description": "1949年广州解放，军事管制委员会接管沙面，外国领事馆与洋行陆续撤离。",
+  "building_ids": [
+   "shamian-10"
+  ],
+  "source": "广州市情网",
+  "confidence": "high"
+ },
+ {
+  "id": "e-1950",
+  "year": 1950,
+  "date_label": "1950年代",
+  "title": "沙面成为广州外事区",
+  "type": "事件",
+  "description": "1950年代，沙面成为广州重要的外事区，苏联、波兰、越南等国领事馆曾设于此。",
+  "building_ids": [
+   "shamian-10",
+   "french-consulate",
+   "british-consulate"
+  ],
+  "source": "广州市情网；《广州沙面大街10号保护活化实录》",
+  "confidence": "high"
+ },
+ {
+  "id": "e-1983",
+  "year": 1983,
+  "date_label": "1983年",
+  "title": "白天鹅宾馆开业",
+  "type": "建成",
+  "description": "1983年2月，白天鹅宾馆开业，成为中国改革开放后首家中外合作经营的五星级酒店，沙面重新进入国际视野。",
+  "building_ids": [
+   "white-swan"
+  ],
+  "source": "广州市情网；OpenStreetMap",
+  "confidence": "high"
+ },
+ {
+  "id": "e-1996",
+  "year": 1996,
+  "date_label": "1996年",
+  "title": "沙面建筑群列为全国重点文物保护单位",
+  "type": "保护",
+  "description": "1996年11月，沙面建筑群被列为第四批全国重点文物保护单位，岛内近代建筑群得到系统性保护。",
+  "building_ids": [],
+  "source": "国家文物局；广州市情网",
+  "confidence": "high"
+ },
+ {
+  "id": "e-2019",
+  "year": 2019,
+  "date_label": "2019年",
+  "title": "沙面全岛微改造启动",
+  "type": "修缮",
+  "description": "2019年起，沙面启动全岛微改造，涉及道路、立面、排水与公共空间，强调“绣花”式更新。",
+  "building_ids": [],
+  "source": "广州市情网；荔湾区人民政府",
+  "confidence": "high"
+ },
+ {
+  "id": "e-2024",
+  "year": 2024,
+  "date_label": "2024年",
+  "title": "沙面大街10号完成保护活化",
+  "type": "修缮",
+  "description": "2023—2024年，沙面大街10号完成保护活化，2024年出版《广州沙面大街10号保护活化实录》，成为沙面建筑活化利用的样本。",
+  "building_ids": [
+   "shamian-10"
+  ],
+  "source": "《广州沙面大街10号保护活化实录》",
+  "confidence": "high"
+ }
+]
